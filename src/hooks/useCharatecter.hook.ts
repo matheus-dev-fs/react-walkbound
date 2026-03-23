@@ -1,8 +1,9 @@
 import { useState } from "react";
 import type { CharacterPos } from "../types/character-pos.type";
 import type { Direction } from "../types/direction.type";
+import type { CharacterType } from "../types/character.type";
 
-export const useCharacter = () => {
+export const useCharacter = (): CharacterType => {
     const [pos, setPos] = useState<CharacterPos>({ x: 3, y: 5 });
 
     const moveCharacter = (direction: Direction): void => {
