@@ -1,9 +1,11 @@
+import type { FC } from 'react';
 import * as S from './App.styles';
+import { Map } from './components/map/map.component';
 
-const App: React.FC = () => {
+const App: FC = () => {
     return (
         <S.Container>
-            <h1>Hello, World!</h1>
+            <Map />
         </S.Container>
     );
 };
