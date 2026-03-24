@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# React Walkbound
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto interativo em React que simula um ambiente 2D de um jogo. O usuário pode controlar e movimentar um personagem pelo mapa, interagir com o cenário através de colisões e explorar o ambiente. 
 
-Currently, two official plugins are available:
+Este projeto foi desenvolvido com foco em aprimorar lógicas de movimentação de grade (grid movement), manipulação de eventos de teclado e renderização de componentes dinâmicos no React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- **Movimentação do Personagem**: Controle total utilizando as teclas `W A S D` ou as `Setas` do teclado.
+- **Sistema de Colisões**: O personagem respeita os limites do mapa e possui colisão com objetos e obstáculos presentes no cenário.
+- **Nome Dinâmico**: O nome do personagem é exibido e centralizado em cima do sprite de forma dinâmica.
+- **Renderização Limpa**: Atualizações de posição eficientes, mantendo a estabilidade da interface gráfica.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Melhorias Técnicas e Refatorações
 
-## Expanding the ESLint configuration
+A base do projeto passou por refatorações significativas para adotar padrões modernos de desenvolvimento, garantindo mais performance e melhor manutenção do código:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Migração para o Vite**: Em vez de utilizar o tradicional Create React App (CRA), o projeto utiliza o **Vite**, proporcionando um ambiente de desenvolvimento incrivelmente mais rápido e builds otimizados.
+- **React 19 & TypeScript**: Forte tipagem estática e uso das novas versões do React, tornando o código mais seguro e previsível.
+- **Estruturação de Código**: Componentização aprimorada e separação clara de responsabilidades no código-fonte.
+- **Estilização Moderna**: Uso de **Styled Components** (`styled-components`) para o encapsulamento e manutenção dinâmica dos estilos ligados ao JavaScript.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Styled Components](https://styled-components.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Como rodar o projeto localmente
+
+Siga os passos abaixo para testar a simulação em sua própria máquina:
+
+**1. Clone o repositório:**
+```bash
+git clone https://github.com/matheus-dev-fs/react-walkbound.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**2. Acesse a pasta do projeto:**
+```bash
+cd react-walkbound
 ```
+
+**3. Instale as dependências:**
+```bash
+npm install
+# ou
+yarn install
+```
+
+**4. Inicie o servidor de desenvolvimento:**
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+**5. Acesse no navegador:**
+Abra `http://localhost:5173` e divirta-se movimentando o personagem pelo mapa!
