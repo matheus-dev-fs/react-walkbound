@@ -5,7 +5,7 @@ import { useCharacter } from './hooks/useCharatecter.hook';
 import type { CharacterType } from './types/character.type';
 
 const App: FC = () => {
-    const character: CharacterType = useCharacter();
+    const character: CharacterType = useCharacter('Héroi');
 
     useEffect((): void => {
         window.addEventListener('keydown', handleKeyDown);

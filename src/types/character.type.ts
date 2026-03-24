@@ -4,4 +4,5 @@ import type { Direction } from "./direction.type";
 export type CharacterType = CharacterPos &{
     moveCharacter: (direction: Direction) => void;
     spritePosition: Direction;
+    name: string;
 }

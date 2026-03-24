@@ -4,7 +4,8 @@ import type { Direction } from "../types/direction.type";
 import type { CharacterType } from "../types/character.type";
 import { mapSpots } from "../data/map-spots.data";
 
-export const useCharacter = (): CharacterType => {
+export const useCharacter = (charName: string): CharacterType => {
+    const [name, setName] = useState<string>(charName);
     const [pos, setPos] = useState<CharacterPos>({ x: 3, y: 5 });
     const [spritePosition, setSpritePosition] = useState<Direction>('down');
 
@@ -41,6 +42,7 @@ export const useCharacter = (): CharacterType => {
     };
 
     return {
+        name,
         x: pos.x,
         y: pos.y,
         moveCharacter,

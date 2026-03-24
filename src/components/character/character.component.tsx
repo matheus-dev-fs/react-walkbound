@@ -5,9 +5,10 @@ import type { Direction } from '../../types/direction.type';
 
 type Props = CharacterPos & {
     spritePosition: Direction;
+    name: string;
 };
 
-export const Character: FC<Props> = ({ x, y, spritePosition }: Props) => {
+export const Character: FC<Props> = ({ x, y, spritePosition, name }: Props) => {
     const SIZE: number = 30;
     const spriteDirections: Record<Direction, number> = {
         down: 0,
@@ -23,7 +24,7 @@ export const Character: FC<Props> = ({ x, y, spritePosition }: Props) => {
             $top={y * SIZE}
             $spritePosition={spriteDirections[spritePosition]}
         >
-            
+            <S.CharName>{name}</S.CharName>
         </S.Container>
     );
 }

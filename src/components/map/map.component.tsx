@@ -10,7 +10,12 @@ type Props = {
 export const Map: FC<Props> = ({ character }) => {
     return (
         <S.Container>
-            <Character x={character.x} y={character.y} spritePosition={character.spritePosition}/>
+            <Character 
+                x={character.x} 
+                y={character.y} 
+                spritePosition={character.spritePosition}
+                name={character.name}
+        />
         </S.Container>
     );
 }
