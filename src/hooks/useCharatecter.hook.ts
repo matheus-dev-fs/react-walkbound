@@ -4,18 +4,23 @@ import type { Direction } from "../types/direction.type";
 import type { CharacterType } from "../types/character.type";
 
 export const useCharacter = (): CharacterType => {
-    const [pos, setPos] = useState<CharacterPos>({ x: 3, y: 5 });
+    const [pos, setPos] = useState<CharacterPos>({ x: 3, y: 5});
+    const [spritePosition, setSpritePosition] = useState<Direction>('down');
 
     const moveCharacter = (direction: Direction): void => {
         setPos((prev: CharacterPos): CharacterPos => {
             switch (direction) {
                 case 'left':
-                    return { ...prev, x: prev.x - 1 };
+                    setSpritePosition('left');
+                    return { ...prev, x: prev.x - 1};
                 case 'right':
-                    return { ...prev, x: prev.x + 1 };
+                    setSpritePosition('right');
+                    return { ...prev, x: prev.x + 1};
                 case 'up':
-                    return { ...prev, y: prev.y - 1 };
+                    setSpritePosition('up');
+                    return { ...prev, y: prev.y - 1};
                 case 'down':
+                    setSpritePosition('down');
                     return { ...prev, y: prev.y + 1 };
                 default:
                     return prev;
@@ -26,6 +31,7 @@ export const useCharacter = (): CharacterType => {
     return {
         x: pos.x,
         y: pos.y,
-        moveCharacter
+        moveCharacter,
+        spritePosition
     }
 };
